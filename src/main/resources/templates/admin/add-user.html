@@ -1,0 +1,62 @@
+<h5 class="card-header">Add new user</h5>
+<div class="container-fluid" style="padding-top: 20px;">
+    <form th:method="PATCH" th:action="@{/admin/save}" th:object="${newuser}" >
+        <table class="container" style="max-width: 400px; ">
+            <tbody>
+            <tr>
+                <td th:align="center">
+                    <label class="font-weight-bold" >First name: </label>
+                </td>
+            <tr/>
+            <tr>
+                <td><input type="text" class="form-control font-weight-bold" name="username" id="name" placeholder="First name" required /></td>
+            <tr/>
+            <tr>
+                <td th:align="center"><label class="font-weight-bold">Last name: </label></td>
+            <tr/>
+            <tr>
+                <td><input type="text" class="form-control font-weight-bold" name="lastname" id="lastName" placeholder="Last name" required /></td>
+            <tr/>
+            <tr>
+                <td th:align="center"><label class="font-weight-bold">Age: </label></td>
+            <tr/>
+            <tr>
+                <td><input type="number" class="form-control font-weight-bold" name="age" id="age" placeholder="Age" required  /></td>
+            <tr/>
+            <tr>
+                <td th:align="center"><label class="font-weight-bold">е-mail: </label></td>
+            <tr/>
+            <tr>
+                <td><input type="text" class="form-control font-weight-bold" name="email" id="email" placeholder="Email" required/></td>
+            <tr/>
+            <tr>
+                <td th:align="center"><label class="font-weight-bold">Password: </label></td>
+            <tr/>
+            <tr>
+                <td><input type="password" class="form-control" name="password" id="password" placeholder="Password" required /></td>
+            <tr/>
+            <tr>
+                <td th:align="center" colspan="2">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="roles">Roles</label>
+                    <select multiple size="2"
+                            class="form-control"
+                            id="roles"
+                            name="roles"
+                            required>
+                        <option
+                                th:each="role : ${rolesList}"
+                                th:value="${role.id}"
+                                th:text="${role.roleName.substring(5)}">
+                        </option>
+                    </select>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td th:align="center"><input class="btn btn-success save" type="submit" value="Add new user"/></td>
+            <tr/>
+            </tbody>
+        </table>
+    </form>
+</div>
